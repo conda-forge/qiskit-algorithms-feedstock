@@ -3,4 +3,7 @@ github:
   tooling_branch_name: main
 conda_build:
   error_overlinking: true
+bot:
+  automerge: true
+  inspection: update-grayskull
 conda_forge_output_validation: true
