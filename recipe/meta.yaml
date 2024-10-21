@@ -1,13 +1,13 @@
 {% set name = "qiskit-algorithms" %}
-{% set version = "0.3.0" %}
+{% set version = "0.3.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/qiskit-algorithms-{{ version }}.tar.gz
-  sha256: 02eedcbb079c6da371421a50cb296ff1dc6ce4a1c478ec521ff6e62c9bc53e10
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: cba9c573d47c0f9508745a5a2794298084ec4f8833781b426fa9b2cea0fca794
 
 build:
   noarch: python
