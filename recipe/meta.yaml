@@ -1,5 +1,5 @@
 {% set name = "qiskit-algorithms" %}
-{% set version = "0.3.1" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: cba9c573d47c0f9508745a5a2794298084ec4f8833781b426fa9b2cea0fca794
+  sha256: b945e807c9b94ba2e0d2e02898b1f1e1a33efd3b4a6dc5a45bb787c6832d4093
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -20,7 +20,7 @@ requirements:
     - setuptools
     - pip
   run:
-    - qiskit >=0.44
+    - qiskit >=1.0
     - python >={{ python_min }}
     - scipy >=1.4
     - numpy >=1.17
