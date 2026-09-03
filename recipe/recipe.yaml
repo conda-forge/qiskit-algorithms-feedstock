@@ -1,0 +1,49 @@
+schema_version: 1
+
+context:
+  name: qiskit-algorithms
+  version: "0.4.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
+  sha256: b945e807c9b94ba2e0d2e02898b1f1e1a33efd3b4a6dc5a45bb787c6832d4093
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - setuptools
+    - pip
+  run:
+    - qiskit >=1.0
+    - python >=${{ python_min }}
+    - scipy >=1.4
+    - numpy >=1.17
+
+tests:
+  - python:
+      imports:
+        - qiskit_algorithms
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+
+about:
+  summary: "Qiskit Algorithms: A library of quantum computing algorithms"
+  license: Apache-2.0
+  license_file: LICENSE.txt
+  homepage: https://github.com/qiskit-community/qiskit-algorithms
+
+extra:
+  recipe-maintainers:
+    - BastianZim
+    - wshanks
